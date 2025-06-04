@@ -1,0 +1,15 @@
+# Build artifacts
+*.iso
+*.img
+*.qcow2
+build/
+temp/
+
+# System files
+.DS_Store
+Thumbs.db
+*~
+
+# IDE files
+.vscode/
+.idea/
