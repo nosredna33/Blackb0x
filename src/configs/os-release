@@ -1,0 +1,15 @@
+BlackB0x 1.0 \n \l
+
+NAME="BlackB0x"
+VERSION="1.0 (Terminal)"
+ID=blackb0x
+ID_LIKE=ubuntu
+PRETTY_NAME="BlackB0x 1.0"
+VERSION_ID="1.0"
+HOME_URL="https://blackb0x.com.br"
+SUPPORT_URL="https://blackb0x.com.br/suporte"
+BUG_REPORT_URL="https://blackb0x.com.br/bugs"
+PRIVACY_POLICY_URL="https://blackb0x.com.br/privacidade"
+VERSION_CODENAME=terminal
+UBUNTU_CODENAME=jammy
+

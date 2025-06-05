@@ -1,0 +1,49 @@
+#!/bin/bash
+# Script de formatação e configuração LUKS + F2FS para BlackB0x
+
+set -e
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Este script deve ser executado como root"
+    exit 1
+fi
+
+DEVICE="$1"
+if [ -z "$DEVICE" ]; then
+    echo "Uso: $0 <dispositivo>"
+    echo "Exemplo: $0 /dev/sdb"
+    exit 1
+fi
+
+echo "=== BlackB0x Formatação LUKS + F2FS ==="
+echo "ATENÇÃO: Todos os dados em $DEVICE serão perdidos!"
+read -p "Continuar? (s/N): " confirm
+
+if [ "$confirm" != "s" ] && [ "$confirm" != "S" ]; then
+    echo "Operação cancelada."
+    exit 0
+fi
+
+# Criar partição
+echo "Criando partição..."
+parted -s "$DEVICE" mklabel msdos
+parted -s "$DEVICE" mkpart primary 0% 100%
+parted -s "$DEVICE" set 1 boot on
+
+PARTITION="${DEVICE}1"
+
+# Configurar LUKS
+echo "Configurando criptografia LUKS..."
+cryptsetup luksFormat "$PARTITION" --label=BlackB0x-crypt
+
+# Abrir partição criptografada
+echo "Abrindo partição criptografada..."
+cryptsetup luksOpen "$PARTITION" blackb0x-root
+
+# Formatar com F2FS
+echo "Formatando com F2FS..."
+mkfs.f2fs -l BlackB0x-root /dev/mapper/blackb0x-root
+
+echo "Formatação concluída!"
+echo "Use 'mount /dev/mapper/blackb0x-root /mnt' para montar"
+
