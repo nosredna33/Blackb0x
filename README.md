@@ -7,7 +7,7 @@ Distribuição Linux focada em privacidade e segurança
 ## 🔧 Build from Source
 ## 📖 Documentation
 ### Estrutura do projeto
-<pre>
+
     BLACKB0X
     +---assets
     |   +---branding
@@ -72,7 +72,6 @@ Distribuição Linux focada em privacidade e segurança
     \---tools
         +---deployment
         \---development
-</pre>
 ---
 
 ## 🤝 Contributing
