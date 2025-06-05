@@ -37,6 +37,11 @@ Distribuição Linux focada em privacidade e segurança
     |   |   run_blackb0x_vm.sh
     |   |
     |   \---development
+    |           **analise_blackb0x.pdf**
+    |           **Análise de Conectividade P2P para Blackb0x.md**
+    |           **Análise Técnica do Projeto Blackb0x.md**
+    |           **conectividade_blackb0x.pdf**
+    |           notas_seguranca.md
     |           regra-criar.md
     |           todo.md
     |
